@@ -55,11 +55,11 @@ ROOT_URLCONF = 'coffeedapp.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
+       'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(MAIN_DIR, 'templates')],
+       'APP_DIRS': True,
+       'OPTIONS': {
+           'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'coffeedapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(MAIN_DIR, 'db.sqlite3'),
     }
 }
 # Parse database configuration from $DATABASE_URL
@@ -114,9 +114,10 @@ TEMPATE_DIRS = (
     os.path.join(MAIN_DIR, 'templates'),
     )
 
-STATICFILES_DIRS = (
-    os.path.join(MAIN_DIR, "static"),
-    )
 
+STATICFILES_DIRS = (
+    os.path.join(MAIN_DIR, 'static'),
+    )
+STATIC_ROOT = 'staticfiles'
 
 
